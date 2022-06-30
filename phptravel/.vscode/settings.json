@@ -1,6 +1,7 @@
 {
     "java.configuration.updateBuildConfiguration": "automatic",
     "cucumberautocomplete.steps": [
+        //"phptravel/src/test/java/stepDefinitions/*.java"
         "phptravel/src/test/java/stepDefinitions/*.java"
     ],
     "cucumberautocomplete.strictGherkinCompletion": true,

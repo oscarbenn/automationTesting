@@ -1,18 +1,19 @@
 package testRunner;
 
-import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
 
-/**
- * Unit test for simple App.
- */
+@RunWith(Cucumber.class)
+ @CucumberOptions(features = "src/test/resources/features",
+                    glue= {"stepDefinitions"},
+                    tags = "@smoke",
+                    monochrome = false,
+                    plugin = {"pretty", "html:target/reports.html",
+                                        "json:target/reports.json",
+                                        "junit:target/reports.xml"}
+                )
 class TestRunner {
-    /**
-     * Rigorous Test.
-     */
-    @Test
-    void testApp() {
-        assertEquals(1, 1);
-    }
+
 }

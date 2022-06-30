@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.39">
+<file name="E:\INTERN\Formulatrix\automationTesting\automationTesting\phptravel\src\main\java\demo\App.java">
+</file>
+<file name="E:\INTERN\Formulatrix\automationTesting\automationTesting\phptravel\src\test\java\pageObject\LoginPage.java">
+<error line="1" column="9" severity="error" message="Name &apos;pageObject&apos; must match pattern &apos;^[a-z]+(\.[a-z][a-z0-9]*)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>
+<error line="3" column="1" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+<error line="4" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+</file>
+<file name="E:\INTERN\Formulatrix\automationTesting\automationTesting\phptravel\src\test\java\stepDefinitions\login_steps.java">
+<error line="1" column="9" severity="error" message="Name &apos;stepDefinitions&apos; must match pattern &apos;^[a-z]+(\.[a-z][a-z0-9]*)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>
+<error line="3" column="1" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+<error line="3" column="14" severity="error" message="Name &apos;login_steps&apos; must match pattern &apos;^[A-Z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.TypeNameCheck"/>
+<error line="4" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+</file>
+<file name="E:\INTERN\Formulatrix\automationTesting\automationTesting\phptravel\src\test\java\testRunner\TestRunner.java">
+<error line="1" column="9" severity="error" message="Name &apos;testRunner&apos; must match pattern &apos;^[a-z]+(\.[a-z][a-z0-9]*)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>
+</file>
+<file name="E:\INTERN\Formulatrix\automationTesting\automationTesting\phptravel\src\test\resources\cucumber.properties">
+</file>
+<file name="E:\INTERN\Formulatrix\automationTesting\automationTesting\phptravel\src\test\resources\junit-platform.properties">
+</file>
+</checkstyle>
