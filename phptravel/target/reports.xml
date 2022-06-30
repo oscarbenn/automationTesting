@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="2" time="44.076">
+    <testcase classname="login" name="Check login is successful with valid credentials" time="25.322">
+        <failure message="expected: &lt;Dashboard - PHPTRAVELS&gt; but was: &lt;Login - PHPTRAVELS&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[Given user is on login page.................................................passed
+Then check if user is on login page.........................................passed
+When user enters graes14@gmail.com and soeta97..............................passed
+And user clicks on login button.............................................passed
+Then user is navigated to dashboard.........................................failed
+
+StackTrace:
+org.opentest4j.AssertionFailedError: expected: <Dashboard - PHPTRAVELS> but was: <Login - PHPTRAVELS>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1124)
+	at stepDefinitions.login_steps.user_is_navigated_to_dashboard(login_steps.java:70)
+	at ✽.user is navigated to dashboard(file:///E:/INTERN/Formulatrix/automationTesting/automationTesting/phptravel/src/test/resources/features/login.feature:12)
+]]></failure>
+    </testcase>
+    <testcase classname="login" name="Check login with invalid credentials" time="18.036">
+        <system-out><![CDATA[Given user is on login page.................................................passed
+Then check if user is on login page.........................................passed
+When user enters graes15@gmail.com and pasweut98............................passed
+And user clicks on login button.............................................passed
+Then message error is displayed.............................................passed
+]]></system-out>
+    </testcase>
+</testsuite>

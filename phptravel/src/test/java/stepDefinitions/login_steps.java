@@ -16,7 +16,7 @@ import io.cucumber.java.en.*;
 import pageObject.LoginPage;
 
 public class login_steps {
-    WebDriver driver = null;
+    public WebDriver driver = null;
     LoginPage loginPage = new LoginPage(driver);
 
     @Before
@@ -40,8 +40,8 @@ public class login_steps {
     }
 
     @Given("user is on login page")
-    public void user_is_on_login_page() {
-        driver.get("https://www.phptravels.net/login");
+    public void user_is_on_login_page(login_steps login_steps) {
+        login_steps.driver.get("https://www.phptravels.net/login");
     }
 
     @Then("check if user is on login page")
