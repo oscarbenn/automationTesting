@@ -1,0 +1,9 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "cucumberautocomplete.steps": [
+        "phptravel/src/test/java/stepDefinitions/*.java"
+    ],
+    "cucumberautocomplete.strictGherkinCompletion": true,
+    "java.project.referencedLibraries": [
+        "demo/lib/selenium-java-4.3.0.jar"]
+}
