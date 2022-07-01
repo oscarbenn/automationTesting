@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.39">
-<file name="E:\INTERN\Formulatrix\automationTesting\automationTesting\phptravel\src\main\java\demo\App.java">
+<file name="C:\Users\smith\OneDrive\Documents\INTERN\Formulatrix\automationTesting\phptravel\src\main\java\demo\App.java">
 </file>
-<file name="E:\INTERN\Formulatrix\automationTesting\automationTesting\phptravel\src\test\java\pageObject\LoginPage.java">
+<file name="C:\Users\smith\OneDrive\Documents\INTERN\Formulatrix\automationTesting\phptravel\src\test\java\pageObject\LoginPage.java">
 <error line="1" column="9" severity="error" message="Name &apos;pageObject&apos; must match pattern &apos;^[a-z]+(\.[a-z][a-z0-9]*)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>
 <error line="6" column="1" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
 <error line="7" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
@@ -15,7 +15,7 @@
 <error line="21" column="47" severity="error" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="25" column="29" severity="error" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 </file>
-<file name="E:\INTERN\Formulatrix\automationTesting\automationTesting\phptravel\src\test\java\stepDefinitions\login_steps.java">
+<file name="C:\Users\smith\OneDrive\Documents\INTERN\Formulatrix\automationTesting\phptravel\src\test\java\stepDefinitions\login_steps.java">
 <error line="1" column="9" severity="error" message="Name &apos;stepDefinitions&apos; must match pattern &apos;^[a-z]+(\.[a-z][a-z0-9]*)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>
 <error line="6" column="1" severity="error" message="Wrong order for &apos;java.time.Duration&apos; import." source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
 <error line="8" column="1" severity="error" message="Extra separation in import group before &apos;org.openqa.selenium.By&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
@@ -35,7 +35,6 @@
 <error line="31" column="70" severity="error" message="&apos;30&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 <error line="32" column="71" severity="error" message="&apos;40&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 <error line="36" column="27" severity="error" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="43" column="51" severity="error" message="Name &apos;login_steps&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
 <error line="47" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
 <error line="49" column="16" severity="error" message="Name &apos;ActualTitle&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.LocalVariableNameCheck"/>
 <error line="50" column="16" severity="error" message="Name &apos;ExpectedTitle&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.LocalVariableNameCheck"/>
@@ -45,7 +44,7 @@
 <error line="69" column="16" severity="error" message="Name &apos;ExpectedTitle&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.LocalVariableNameCheck"/>
 <error line="73" column="5" severity="error" message="&apos;METHOD_DEF&apos; should be separated from previous statement." source="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
 </file>
-<file name="E:\INTERN\Formulatrix\automationTesting\automationTesting\phptravel\src\test\java\testRunner\TestRunner.java">
+<file name="C:\Users\smith\OneDrive\Documents\INTERN\Formulatrix\automationTesting\phptravel\src\test\java\testRunner\TestRunner.java">
 <error line="1" column="9" severity="error" message="Name &apos;testRunner&apos; must match pattern &apos;^[a-z]+(\.[a-z][a-z0-9]*)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>
 <error line="5" column="1" severity="error" message="Extra separation in import group before &apos;io.cucumber.junit.Cucumber&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
 <error line="5" column="1" severity="error" message="Wrong order for &apos;io.cucumber.junit.Cucumber&apos; import." source="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck"/>
@@ -53,8 +52,8 @@
 <error line="9" column="2" severity="error" message="&apos;class def modifier&apos; has incorrect indentation level 1, expected level should be 0." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="10" column="25" severity="error" message="&apos;=&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 </file>
-<file name="E:\INTERN\Formulatrix\automationTesting\automationTesting\phptravel\src\test\resources\cucumber.properties">
+<file name="C:\Users\smith\OneDrive\Documents\INTERN\Formulatrix\automationTesting\phptravel\src\test\resources\cucumber.properties">
 </file>
-<file name="E:\INTERN\Formulatrix\automationTesting\automationTesting\phptravel\src\test\resources\junit-platform.properties">
+<file name="C:\Users\smith\OneDrive\Documents\INTERN\Formulatrix\automationTesting\phptravel\src\test\resources\junit-platform.properties">
 </file>
 </checkstyle>

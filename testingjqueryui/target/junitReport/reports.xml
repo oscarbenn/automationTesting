@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="24.855">
+    <testcase classname="draggable" name="check draggable functionality" time="24.295">
+        <failure message="Driver must be set" type="java.lang.IllegalArgumentException"><![CDATA[Given user is on draggable page.............................................passed
+Then check if user is on draggable page.....................................passed
+Given pointer get to draggable element......................................failed
+When user action drag 100 to right..........................................skipped
+Then element move 100 to right..............................................skipped
+
+StackTrace:
+java.lang.IllegalArgumentException: Driver must be set
+	at org.openqa.selenium.internal.Require.nonNull(Require.java:59)
+	at org.openqa.selenium.interactions.Actions.<init>(Actions.java:60)
+	at pageObject.DraggablePage.<init>(DraggablePage.java:12)
+	at stepDefinitions.draggable_steps.pointer_get_to_draggable_element(draggable_steps.java:55)
+	at ✽.pointer get to draggable element(file:///C:/Users/smith/OneDrive/Documents/INTERN/Formulatrix/jquery/testingjqueryui/src/test/resources/features/draggable.feature:10)
+]]></failure>
+    </testcase>
+</testsuite>

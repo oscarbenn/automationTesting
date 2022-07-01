@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="2" time="50.164">
-    <testcase classname="login" name="Check login is successful with valid credentials" time="30.484">
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="2" time="43.886">
+    <testcase classname="login" name="Check login is successful with valid credentials" time="24.557">
         <system-out><![CDATA[Given user is on login page.................................................passed
 Then check if user is on login page.........................................passed
 When user enters graes14@gmail.com and soeta97..............................passed
@@ -8,7 +8,7 @@ And user clicks on login button.............................................pass
 Then user is navigated to dashboard.........................................passed
 ]]></system-out>
     </testcase>
-    <testcase classname="login" name="Check login with invalid credentials" time="18.877">
+    <testcase classname="login" name="Check login with invalid credentials" time="18.606">
         <system-out><![CDATA[Given user is on login page.................................................passed
 Then check if user is on login page.........................................passed
 When user enters graes15@gmail.com and pasweut98............................passed
