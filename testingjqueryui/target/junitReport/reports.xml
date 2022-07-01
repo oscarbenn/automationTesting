@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="21.204">
-    <testcase classname="draggable" name="check draggable functionality" time="20.635">
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="21.727">
+    <testcase classname="draggable" name="check draggable functionality" time="21.176">
         <failure message="Driver must be set" type="java.lang.IllegalArgumentException"><![CDATA[Given user is on draggable page.............................................passed
 Then check if user is on draggable page.....................................passed
 Given pointer get to draggable element......................................failed
