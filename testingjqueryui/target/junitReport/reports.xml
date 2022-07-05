@@ -1,27 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="3" time="57.7">
-    <testcase classname="jqueryui" name="check draggable functionality" time="26.919">
-        <system-out><![CDATA[Given user is on draggable page.............................................passed
-Then check if user is on draggable page.....................................passed
-Given pointer get to draggable element......................................passed
-When user action drag 100 to right and 50 to bottom.........................passed
-Then element move 100 to right and 50 to bottom.............................passed
-]]></system-out>
-    </testcase>
-    <testcase classname="jqueryui" name="check droppable functionality" time="15.37">
-        <system-out><![CDATA[Given user is on droppable page.............................................passed
-Then check if user is on droppable page.....................................passed
-Given pointer get to element................................................passed
-When user action drag and drop draggable element to droppable element.......passed
-Then draggable element move in to droppable element.........................passed
-]]></system-out>
-    </testcase>
-    <testcase classname="jqueryui" name="check resizable functionality" time="14.455">
-        <system-out><![CDATA[Given user is on resizable page.............................................passed
-Then check if user is on resizable page.....................................passed
-Given pointer get to resizable element......................................passed
-When user action drag resizable element 100 to right and 50 to bottom.......passed
-Then object size is changed.................................................passed
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="22.167">
+    <testcase classname="jqueryui" name="check selectable many with swipe functionality" time="20.989">
+        <system-out><![CDATA[Given user is on selectable page............................................passed
+Then check if user is on selectable page....................................passed
+Given pointer get to selectable elements....................................passed
+When user action click and drag from element 2 to element 4.................passed
+Then element 2 element 3 and element 4 is colered "rgba(243, 152, 20, 1)"...passed
 ]]></system-out>
     </testcase>
 </testsuite>

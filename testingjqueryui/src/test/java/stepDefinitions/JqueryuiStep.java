@@ -16,6 +16,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObject.DraggablePage;
 import pageObject.DroppablePage;
 import pageObject.ResizablePage;
+import pageObject.SelectablePage;
 
 public class JqueryuiStep {
 
@@ -23,6 +24,7 @@ public class JqueryuiStep {
     DraggablePage draggablePage = null;
     DroppablePage droppablePage = null;
     ResizablePage resizablePage = null;
+    SelectablePage selectablePage = null;
     Actions actions = null;
     Point positionFirst, positionLast;
     Point dropLocation, dragLocation;
@@ -134,5 +136,52 @@ public class JqueryuiStep {
     @And("object size is changed")
     public void object_size_is_changed() {
         resizablePage.isSizeChange();
+    }
+
+    @Given("user is on selectable page")
+    public void user_is_on_selectable_page() {
+        driver.get("https://jqueryui.com/selectable/");
+    }
+    @Then("check if user is on selectable page")
+    public void check_if_user_is_on_selectable_page() {
+        selectablePage = new SelectablePage(driver);
+        ActualTitle = driver.getTitle();
+        ExpectedTitle = "Selectable | jQuery UI";
+        assertEquals(ExpectedTitle, ActualTitle);
+    }
+    @Given("pointer get to selectable elements")
+    public void pointer_get_to_selectable_elements() {
+        selectablePage.switchToFrame();
+        selectablePage.getElements();
+    }
+    @When("user action click on element {int}")
+    public void user_action_click_on_element(Integer index) {
+        selectablePage.clickElement(index);
+    }
+    @Then("element {int} is colered {string}")
+    public void element_is_colered(Integer index, String color) {
+        String colorActual = selectablePage.checkColor(index);
+        String colorExpected = color;
+        assertEquals(colorExpected, colorActual);
+    }
+
+    @When("user action click on element {int} element {int} and element {int} with ctrl key")
+    public void user_action_click_on_element_element_and_element_with_ctrl_key(Integer index1, Integer index2, Integer index3) {
+        selectablePage.clickElements(index1, index2, index3);
+    }
+    @Then("element {int} element {int} and element {int} is colered {string}")
+    public void element_element_and_element_is_colered(Integer index1, Integer index2, Integer index3, String color) {
+        String colorActual = selectablePage.checkColor(index1);
+        String colorExpected = color;
+        assertEquals(colorExpected, colorActual);
+        colorActual = selectablePage.checkColor(index2);
+        assertEquals(colorExpected, colorActual);
+        colorActual = selectablePage.checkColor(index3);
+        assertEquals(colorExpected, colorActual);
+    }
+
+    @When("user action click and drag from element {int} to element {int}")
+    public void user_action_click_and_drag_from_element_to_element(Integer index1, Integer index2) {
+        selectablePage.selectSwipe(index1, index2);
     }
 }
