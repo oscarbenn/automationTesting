@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.39">
-<file name="C:\Users\smith\OneDrive\Documents\INTERN\Formulatrix\automationTesting\phptravel\src\main\java\demo\App.java">
-</file>
 <file name="C:\Users\smith\OneDrive\Documents\INTERN\Formulatrix\automationTesting\phptravel\src\test\java\pageObject\LoginPage.java">
 <error line="1" column="9" severity="error" message="Name &apos;pageObject&apos; must match pattern &apos;^[a-z]+(\.[a-z][a-z0-9]*)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>
 <error line="6" column="1" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
@@ -51,9 +49,5 @@
 <error line="8" column="1" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
 <error line="9" column="2" severity="error" message="&apos;class def modifier&apos; has incorrect indentation level 1, expected level should be 0." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="10" column="25" severity="error" message="&apos;=&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-</file>
-<file name="C:\Users\smith\OneDrive\Documents\INTERN\Formulatrix\automationTesting\phptravel\src\test\resources\cucumber.properties">
-</file>
-<file name="C:\Users\smith\OneDrive\Documents\INTERN\Formulatrix\automationTesting\phptravel\src\test\resources\junit-platform.properties">
 </file>
 </checkstyle>

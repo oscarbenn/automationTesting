@@ -8,5 +8,5 @@ Feature: draggable
   @smoke
   Scenario: check draggable functionality
     Given pointer get to draggable element
-    When user action drag 100 to right
-    Then element move 100 to right
+    When user action drag 100 to right and 50 to bottom
+    Then element move 100 to right and 50 to bottom
