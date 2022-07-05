@@ -2,10 +2,12 @@ package stepDefinitions;
 
 import java.time.Duration;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
@@ -13,10 +15,12 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import pageObject.AutocompletePage;
 import pageObject.DraggablePage;
 import pageObject.DroppablePage;
 import pageObject.ResizablePage;
 import pageObject.SelectablePage;
+import pageObject.SortablePage;
 
 public class JqueryuiStep {
 
@@ -25,10 +29,13 @@ public class JqueryuiStep {
     DroppablePage droppablePage = null;
     ResizablePage resizablePage = null;
     SelectablePage selectablePage = null;
+    SortablePage sortablePage = null;
+    AutocompletePage autocompletePage = null;
     Actions actions = null;
     Point positionFirst, positionLast;
     Point dropLocation, dragLocation;
     String ActualTitle, ExpectedTitle;
+    WebElement element;
 
     @Before
     public void browserSetup(){
@@ -183,5 +190,59 @@ public class JqueryuiStep {
     @When("user action click and drag from element {int} to element {int}")
     public void user_action_click_and_drag_from_element_to_element(Integer index1, Integer index2) {
         selectablePage.selectSwipe(index1, index2);
+    }
+
+    @Given("user is on sortable page")
+    public void user_is_on_sortable_page() {
+        driver.get("https://jqueryui.com/sortable/");
+    }
+    @Then("check if user is on sortable page")
+    public void check_if_user_is_on_sortable_page() {
+        sortablePage = new SortablePage(driver);
+        ActualTitle = driver.getTitle();
+        ExpectedTitle = "Sortable | jQuery UI";
+        assertEquals(ExpectedTitle, ActualTitle);
+    }
+    @Given("pointer get to sortable elements")
+    public void pointer_get_to_sortable_elements() {
+        sortablePage.switchToFrame();
+        sortablePage.getElements();
+    }
+    @When("user action click and drag element {int} be first element")
+    public void user_action_click_and_drag_element_be_first_element(Integer index) {
+        element = sortablePage.getElement(index);
+        sortablePage.moveElementToTop(index);
+    }
+    @Then("element {int} is moved")
+    public void element_is_moved(Integer index) {
+        sortablePage.getElements();
+        WebElement unexpectedElement = element;
+        WebElement actualElement = sortablePage.getElement(index);
+        assertNotEquals(unexpectedElement, actualElement);
+    }
+
+    @Given("user is on autocomplete page")
+    public void user_is_on_autocomplete_page() {
+        driver.get("https://jqueryui.com/autocomplete/");
+    }
+    @Then("check if user is on autocomplete page")
+    public void check_if_user_is_on_autocomplete_page() {
+        autocompletePage = new AutocompletePage(driver);
+        ActualTitle = driver.getTitle();
+        ExpectedTitle = "Autocomplete | jQuery UI";
+        assertEquals(ExpectedTitle, ActualTitle);
+    }
+    @Given("pointer get to autocomplete elements")
+    public void pointer_get_to_autocomplete_elements() {
+        autocompletePage.switchToFrame();
+    }
+    @When("user typing {string} on element")
+    public void user_typing_on_element(String word) {
+        autocompletePage.typing(word);
+        autocompletePage.getElements();
+    }
+    @Then("element give {int} opsi")
+    public void element_give_opsi(Integer number) {
+        assertTrue(autocompletePage.numberElement()==number);
     }
 }

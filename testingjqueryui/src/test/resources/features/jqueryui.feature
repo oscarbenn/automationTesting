@@ -33,7 +33,7 @@ Feature: jqueryui
     When user action click on element 1
     Then element 1 is colered "rgba(243, 152, 20, 1)"
 
-  @selectmany
+  @select
   Scenario: check selectable many with ctrl key functionality
     Given user is on selectable page
     Then check if user is on selectable page
@@ -41,10 +41,26 @@ Feature: jqueryui
     When user action click on element 1 element 3 and element 5 with ctrl key
     Then element 1 element 3 and element 5 is colered "rgba(243, 152, 20, 1)"
 
-  @selectswipe
+  @select
   Scenario: check selectable many with swipe functionality
     Given user is on selectable page
     Then check if user is on selectable page
     Given pointer get to selectable elements
     When user action click and drag from element 2 to element 4
     Then element 2 element 3 and element 4 is colered "rgba(243, 152, 20, 1)"
+
+  @sort
+  Scenario: check sortable functionality
+    Given user is on sortable page
+    Then check if user is on sortable page
+    Given pointer get to sortable elements
+    When user action click and drag element 4 be first element
+    Then element 4 is moved
+
+  @autocomplete
+  Scenario: check autocomplete functionality
+    Given user is on autocomplete page
+    Then check if user is on autocomplete page
+    Given pointer get to autocomplete elements
+    When user typing "Script" on element
+    Then element give 3 opsi
