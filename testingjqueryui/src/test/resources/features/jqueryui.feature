@@ -67,9 +67,18 @@ Feature: jqueryui
 
   @checkbox
   Scenario: check checkbox functionality
-    Given user is on checkbox page
-    Then check if user is on checkbox page
+    Given user is on checkboxradio page
+    Then check if user is on checkboxradio page
     Given pointer get to checkbox elements
     When user click the "5 Star" option
     Then opsion is checked and colored "rgba(0, 127, 255, 1)"
 
+  @radio
+  Scenario: check radio functionality
+    Given user is on checkboxradio page
+    Then check if user is on checkboxradio page
+    Given pointer get to radio elements
+    When user click the "New York" radio option
+    Then option is checked and colored "rgba(0, 127, 255, 1)"
+
+  

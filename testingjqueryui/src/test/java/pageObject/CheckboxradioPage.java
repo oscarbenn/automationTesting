@@ -11,10 +11,11 @@ public class CheckboxradioPage {
 
     protected WebDriver driver;
     protected Actions actions;
-    private List<WebElement> boxes_elements;
-    private WebElement frame_element, boxes_element, boxes_choosen;
+    private List<WebElement> boxes_elements, radios_element;
+    private WebElement frame_element, boxes_element, boxes_choosen, radio__element, radio_choosen;
     private By frame = By.tagName("iframe");
     private By boxes = By.xpath("//input[@type=\"checkbox\"]");
+    private By radios = By.name("radio-1");
 
     public CheckboxradioPage(WebDriver driver) {
         this.driver = driver;
@@ -48,6 +49,25 @@ public class CheckboxradioPage {
        return color;
     }
 
+    public void getRadios(){
+        radios_element = driver.findElements(radios);
+    }
 
+    public void chooseRadio(String radio){
+        for (int i = 0; i < radios_element.size(); i++) {
+            String id = radios_element.get(i).getAttribute("id");
+            radio__element = driver.findElement(By.xpath("//label[@for=\'"+id+"\']"));
+            String label = radio__element.getText();
+            if (label.equalsIgnoreCase("New York")) {
+                radio__element.click();
+                radio_choosen = driver.findElement(By.xpath("//label[@for=\'"+id+"\']"));
+                break;
+            }
+        }
+    }
 
+    public String colorRadio(){
+        String color = radio_choosen.getCssValue("background-color");
+        return color;
+    }
 }

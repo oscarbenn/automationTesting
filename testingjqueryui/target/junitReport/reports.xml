@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="30.465">
-    <testcase classname="jqueryui" name="check checkbox functionality" time="29.655">
-        <system-out><![CDATA[Given user is on checkbox page..............................................passed
-Then check if user is on checkbox page......................................passed
-Given pointer get to checkbox elements......................................passed
-When user click the "5 Star" option.........................................passed
-Then opsion is checked and colored "rgba(0, 127, 255, 1)"...................passed
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="21.989">
+    <testcase classname="jqueryui" name="check radio functionality" time="21.052">
+        <system-out><![CDATA[Given user is on checkboxradio page.........................................passed
+Then check if user is on checkboxradio page.................................passed
+Given pointer get to radio elements.........................................passed
+When user click the "New York" radio option.................................passed
+Then option is checked and colored "rgba(0, 127, 255, 1)"...................passed
 ]]></system-out>
     </testcase>
 </testsuite>

@@ -249,12 +249,12 @@ public class JqueryuiStep {
         assertTrue(autocompletePage.numberElement()==number);
     }
 
-    @Given("user is on checkbox page")
-    public void user_is_on_checkbox_page() {
+    @Given("user is on checkboxradio page")
+    public void user_is_on_checkboxradio_page() {
         driver.get("https://jqueryui.com/checkboxradio/");
     }
-    @Then("check if user is on checkbox page")
-    public void check_if_user_is_on_checkbox_page() {
+    @Then("check if user is on checkboxradio page")
+    public void check_if_user_is_on_checkboxradio_page() {
         checkboxradioPage = new CheckboxradioPage(driver);
         ActualTitle = driver.getTitle();
         ExpectedTitle = "Checkboxradio | jQuery UI";
@@ -272,5 +272,19 @@ public class JqueryuiStep {
     @Then("opsion is checked and colored {string}")
     public void opsion_is_checked_and_colored(String color) {
         assertEquals(color, checkboxradioPage.colorOpsi());
+    }
+
+    @Given("pointer get to radio elements")
+    public void pointer_get_to_radio_elements() {
+        checkboxradioPage.switchToFrame();
+        checkboxradioPage.getRadios();
+    }
+    @When("user click the {string} radio option")
+    public void user_click_the_radio_option(String radio) {
+        checkboxradioPage.chooseRadio(radio);
+    }
+    @Then("option is checked and colored {string}")
+    public void option_is_checked_and_colored(String color) {
+        assertEquals(color, checkboxradioPage.colorRadio());
     }
 }
