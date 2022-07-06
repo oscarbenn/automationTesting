@@ -16,6 +16,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObject.AutocompletePage;
+import pageObject.CheckboxradioPage;
 import pageObject.DraggablePage;
 import pageObject.DroppablePage;
 import pageObject.ResizablePage;
@@ -25,12 +26,14 @@ import pageObject.SortablePage;
 public class JqueryuiStep {
 
     public WebDriver driver = null;
-    DraggablePage draggablePage = null;
-    DroppablePage droppablePage = null;
-    ResizablePage resizablePage = null;
-    SelectablePage selectablePage = null;
-    SortablePage sortablePage = null;
-    AutocompletePage autocompletePage = null;
+    DraggablePage draggablePage;
+    DroppablePage droppablePage;
+    ResizablePage resizablePage;
+    SelectablePage selectablePage;
+    SortablePage sortablePage;
+    AutocompletePage autocompletePage;
+    CheckboxradioPage checkboxradioPage;
+
     Actions actions = null;
     Point positionFirst, positionLast;
     Point dropLocation, dragLocation;
@@ -244,5 +247,30 @@ public class JqueryuiStep {
     @Then("element give {int} opsi")
     public void element_give_opsi(Integer number) {
         assertTrue(autocompletePage.numberElement()==number);
+    }
+
+    @Given("user is on checkbox page")
+    public void user_is_on_checkbox_page() {
+        driver.get("https://jqueryui.com/checkboxradio/");
+    }
+    @Then("check if user is on checkbox page")
+    public void check_if_user_is_on_checkbox_page() {
+        checkboxradioPage = new CheckboxradioPage(driver);
+        ActualTitle = driver.getTitle();
+        ExpectedTitle = "Checkboxradio | jQuery UI";
+        assertEquals(ExpectedTitle, ActualTitle);
+    }
+    @Given("pointer get to checkbox elements")
+    public void pointer_get_to_checkbox_elements() {
+        checkboxradioPage.switchToFrame();
+        checkboxradioPage.getElements();
+    }
+    @When("user click the {string} option")
+    public void user_click_the_option(String opsi) {
+        checkboxradioPage.choose(opsi);
+    }
+    @Then("opsion is checked and colored {string}")
+    public void opsion_is_checked_and_colored(String color) {
+        assertEquals(color, checkboxradioPage.colorOpsi());
     }
 }

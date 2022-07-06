@@ -64,3 +64,12 @@ Feature: jqueryui
     Given pointer get to autocomplete elements
     When user typing "Script" on element
     Then element give 3 opsi
+
+  @checkbox
+  Scenario: check checkbox functionality
+    Given user is on checkbox page
+    Then check if user is on checkbox page
+    Given pointer get to checkbox elements
+    When user click the "5 Star" option
+    Then opsion is checked and colored "rgba(0, 127, 255, 1)"
+
