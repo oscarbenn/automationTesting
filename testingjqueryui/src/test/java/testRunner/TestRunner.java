@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/features",
                     glue = {"stepDefinitions"},
-                    tags = "@smokeFeature and @radio",
+                    tags = "@smokeFeature and @datepicker",
                     monochrome = false,
                     plugin = {"pretty", "html:target/htmlReport/reports.html",
                                         "json:target/jsonReport/reports.json",

@@ -17,6 +17,7 @@ import io.cucumber.java.en.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObject.AutocompletePage;
 import pageObject.CheckboxradioPage;
+import pageObject.DatepickerPage;
 import pageObject.DraggablePage;
 import pageObject.DroppablePage;
 import pageObject.ResizablePage;
@@ -33,6 +34,7 @@ public class JqueryuiStep {
     SortablePage sortablePage;
     AutocompletePage autocompletePage;
     CheckboxradioPage checkboxradioPage;
+    DatepickerPage datepickerPage;
 
     Actions actions = null;
     Point positionFirst, positionLast;
@@ -286,5 +288,34 @@ public class JqueryuiStep {
     @Then("option is checked and colored {string}")
     public void option_is_checked_and_colored(String color) {
         assertEquals(color, checkboxradioPage.colorRadio());
+    }
+
+    @Given("user is on datepicker page")
+    public void user_is_on_datepicker_page() {
+        driver.get("https://jqueryui.com/datepicker/");
+    }
+    @Then("check if user is on datepicker page")
+    public void check_if_user_is_on_datepicker_page() {
+        datepickerPage = new DatepickerPage(driver);
+        ActualTitle = driver.getTitle();
+        ExpectedTitle = "Datepicker | jQuery UI";
+        assertEquals(ExpectedTitle, ActualTitle);
+    }
+    @Given("pointer get to datepicker elements")
+    public void pointer_get_to_datepicker_elements() {
+        datepickerPage.switchToFrame();
+        datepickerPage.getElement();
+    }
+    @When("user click the datepicker element")
+    public void user_click_the_datepicker_element() {
+        datepickerPage.clickDatepicker();
+    }
+    @And("user look for day {string} month {string} year {string}")
+    public void user_look_for_day_month_year(String day, String month, String year) {
+        datepickerPage.selectDate(day, month, year);
+    }
+    @Then("date is checked and colored {string}")
+    public void date_is_checked_and_colored(String color) {
+        assertEquals(color, datepickerPage.colorDate());
     }
 }

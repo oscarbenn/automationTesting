@@ -81,4 +81,12 @@ Feature: jqueryui
     When user click the "New York" radio option
     Then option is checked and colored "rgba(0, 127, 255, 1)"
 
-  
+  @datepicker
+  Scenario: check datepicker functionality
+    Given user is on datepicker page
+    Then check if user is on datepicker page
+    Given pointer get to datepicker elements
+    When user click the datepicker element
+    And user look for day "17" month "August" year "2023"
+    Then date is checked and colored "rgba(0, 127, 255, 1)"
+
