@@ -70,7 +70,7 @@ Feature: jqueryui
     Given user is on checkboxradio page
     Then check if user is on checkboxradio page
     Given pointer get to checkbox elements
-    When user click the "5 Star" option
+    When user click the "4 Star" option
     Then opsion is checked and colored "rgba(0, 127, 255, 1)"
 
   @radio
@@ -89,4 +89,55 @@ Feature: jqueryui
     When user click the datepicker element
     And user look for day "17" month "August" year "2023"
     Then date is checked and colored "rgba(0, 127, 255, 1)"
+
+  @dialoganimated
+  Scenario: check dialoganimated functionality
+    Given user is on dialoganimated page
+    Then check if user is on dialoganimated page
+    Given pointer get to dialoganimated elements
+    When user click the open dialog button
+    Then dialog basic dialog is displayed
+
+  @menu
+  Scenario: check menu functionality
+    Given user is on menu page
+    Then check if user is on menu page
+    Given pointer get to menu elements
+    When user hover mouse to "Electronics" menu
+    Then sub-menu is displayed
+
+  @progressbar
+  Scenario: check progressbar download functionality
+    Given user is on progressbar download page
+    Then check if user is on progressbar download page
+    Given pointer get to  button dowloading elements
+    When user click the button dowloading
+    Then progressbar download is displayed until "Complete!"
+
+
+  @spinner
+    Scenario: check spinner functionality
+      Given user is on spinner page
+      Then check if user is on spinner page
+      Given pointer get the elements
+      When user click spinner up 8 times
+      Then spinner value is 8
+      When user click spinner down 5 times
+      Then spinner value is 3
+
+  @slider
+  Scenario: check slider functionality
+    Given user is on slider page
+    Then check if user is on slider page
+    Given pointer get the slider elements
+    When user drag slider to 50%
+    Then slider value is 50%
+
+  @tooltip
+  Scenario: check tooltip functionality
+    Given user is on tooltip page
+    Then check if user is on tooltip page
+    Given pointer get the frame
+    When user hover pointer to element input
+    Then tooltip is displayed
 

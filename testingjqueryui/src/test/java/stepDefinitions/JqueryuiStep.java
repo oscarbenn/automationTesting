@@ -18,11 +18,17 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObject.AutocompletePage;
 import pageObject.CheckboxradioPage;
 import pageObject.DatepickerPage;
+import pageObject.DialoganimatedPage;
 import pageObject.DraggablePage;
 import pageObject.DroppablePage;
+import pageObject.MenuPage;
+import pageObject.ProgressbarPage;
 import pageObject.ResizablePage;
 import pageObject.SelectablePage;
+import pageObject.SliderPage;
 import pageObject.SortablePage;
+import pageObject.SpinnerPage;
+import pageObject.TooltipPage;
 
 public class JqueryuiStep {
 
@@ -35,6 +41,12 @@ public class JqueryuiStep {
     AutocompletePage autocompletePage;
     CheckboxradioPage checkboxradioPage;
     DatepickerPage datepickerPage;
+    DialoganimatedPage dialoganimatedPage;
+    MenuPage menuPage;
+    TooltipPage tooltipPage;
+    ProgressbarPage progressbarPage;
+    SpinnerPage spinnerPage;
+    SliderPage sliderPage;
 
     Actions actions = null;
     Point positionFirst, positionLast;
@@ -317,5 +329,173 @@ public class JqueryuiStep {
     @Then("date is checked and colored {string}")
     public void date_is_checked_and_colored(String color) {
         assertEquals(color, datepickerPage.colorDate());
+    }
+
+    @Given("user is on dialoganimated page")
+    public void user_is_on_dialoganimated_page() {
+        driver.get("https://jqueryui.com/dialog/#animated");
+    }
+    @Then("check if user is on dialoganimated page")
+    public void check_if_user_is_on_dialoganimated_page() {
+        dialoganimatedPage = new DialoganimatedPage(driver);
+        ActualTitle = driver.getTitle();
+        ExpectedTitle = "Dialog | jQuery UI";
+        assertEquals(ExpectedTitle, ActualTitle);
+    }
+    @Given("pointer get to dialoganimated elements")
+    public void pointer_get_to_dialoganimated_elements() {
+        dialoganimatedPage.switchToFrame();
+        dialoganimatedPage.getElement();
+    }
+    @When("user click the open dialog button")
+    public void user_click_the_open_dialog_button() throws InterruptedException {
+        dialoganimatedPage.clickOpenDialog();
+    }
+    @Then("dialog basic dialog is displayed")
+    public void dialog_basic_dialog_is_displayed() {
+        String display = dialoganimatedPage.validated();
+        System.out.println(display);
+        assertNotEquals("none", display);
+    }
+
+    @Given("user is on menu page")
+    public void user_is_on_menu_page() {
+        driver.get("https://jqueryui.com/menu/");
+    }
+    @Then("check if user is on menu page")
+    public void check_if_user_is_on_menu_page() {
+        menuPage = new MenuPage(driver);
+        ActualTitle = driver.getTitle();
+        ExpectedTitle = "Menu | jQuery UI";
+        assertEquals(ExpectedTitle, ActualTitle);
+    }
+    @Given("pointer get to menu elements")
+    public void pointer_get_to_menu_elements() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @When("user hover mouse to {string} menu")
+    public void user_hover_mouse_to_menu(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @Then("sub-menu is displayed")
+    public void sub_menu_is_displayed() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+
+
+
+    @Given("user is on progressbar download page")
+    public void user_is_on_progressbar_download_page() {
+        driver.get("https://jqueryui.com/progressbar/#download");
+    }
+    @Then("check if user is on progressbar download page")
+    public void check_if_user_is_on_progressbar_download_page() {
+        progressbarPage = new ProgressbarPage(driver);
+        ActualTitle = driver.getTitle();
+        ExpectedTitle = "Progressbar | jQuery UI";
+        assertEquals(ExpectedTitle, ActualTitle);
+    }
+    @Given("pointer get to  button dowloading elements")
+    public void pointer_get_to_button_dowloading_elements() {
+        progressbarPage.switchToFrame();
+        progressbarPage.getElements();
+    }
+    @When("user click the button dowloading")
+    public void user_click_the_button_dowloading() {
+        progressbarPage.clickDownload();
+    }
+    @Then("progressbar download is displayed until {string}")
+    public void progressbar_download_is_displayed_until(String label) {
+        String actual = progressbarPage.validate();
+        String Expected = label;
+        assertEquals(Expected, actual);
+    }
+
+
+    @Given("user is on slider page")
+    public void user_is_on_slider_page() {
+        driver.get("https://jqueryui.com/slider/#default");
+    }
+    @Then("check if user is on slider page")
+    public void check_if_user_is_on_slider_page() {
+        sliderPage = new SliderPage(driver);
+        ActualTitle = driver.getTitle();
+        ExpectedTitle = "Slider | jQuery UI";
+        assertEquals(ExpectedTitle, ActualTitle);
+    }
+    @Given("pointer get the slider elements")
+    public void pointer_get_the_slider_elements() {
+        sliderPage.switchToFrame();
+        sliderPage.getElements();
+    }
+    @When("user drag slider to {int}%")
+    public void user_drag_slider_to(Integer int1) {
+        sliderPage.makeSlide(int1);
+    }
+    @Then("slider value is {int}%")
+    public void slider_value_is(Integer int1) {
+        String expected = "left: "+int1+"%;";
+        String actual = sliderPage.getValue();
+        assertEquals(expected, actual);
+    }
+
+    @Given("user is on spinner page")
+    public void user_is_on_spinner_page() {
+        driver.get("https://jqueryui.com/spinner/");
+    }
+    @Then("check if user is on spinner page")
+    public void check_if_user_is_on_spinner_page() {
+        spinnerPage = new SpinnerPage(driver);
+        ActualTitle = driver.getTitle();
+        ExpectedTitle = "Spinner | jQuery UI";
+        assertEquals(ExpectedTitle, ActualTitle);
+    }
+    @Given("pointer get the elements")
+    public void pointer_get_the_elements() {
+        spinnerPage.switchToFrame();
+        spinnerPage.getElements();
+    }
+    @When("user click spinner up {int} times")
+    public void user_click_spinner_up_times(Integer n) {
+        spinnerPage.clickUp(n);
+    }
+    @Then("spinner value is {int}")
+    public void spinner_value_is(Integer int1) {
+        String actual = spinnerPage.getValue();
+        String expected = int1.toString();
+        assertEquals(expected, actual);
+    }
+    @When("user click spinner down {int} times")
+    public void user_click_spinner_down_times(Integer n) {
+        spinnerPage.clickDown(n);
+    }
+
+    @Given("user is on tooltip page")
+    public void user_is_on_tooltip_page() {
+        driver.get("https://jqueryui.com/tooltip/");
+    }
+    @Then("check if user is on tooltip page")
+    public void check_if_user_is_on_tooltip_page() {
+        tooltipPage = new TooltipPage(driver);
+        ActualTitle = driver.getTitle();
+        ExpectedTitle = "Tooltip | jQuery UI";
+        assertEquals(ExpectedTitle, ActualTitle);
+    }
+    @Given("pointer get the frame")
+    public void pointer_get_the_frame() {
+        tooltipPage.switchToFrame();
+    }
+    @When("user hover pointer to element input")
+    public void user_hover_pointer_to_element_input() {
+        tooltipPage.hoverToElement();
+    }
+    @Then("tooltip is displayed")
+    public void tooltip_is_displayed() {
+        String content = "We ask for your age only for statistical purposes.";
+        assertEquals(content, tooltipPage.validated());
     }
 }

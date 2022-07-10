@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="23.81">
-    <testcase classname="jqueryui" name="check datepicker functionality" time="22.945">
-        <system-out><![CDATA[Given user is on datepicker page............................................passed
-Then check if user is on datepicker page....................................passed
-Given pointer get to datepicker elements....................................passed
-When user click the datepicker element......................................passed
-And user look for day "17" month "August" year "2023".......................passed
-Then date is checked and colored "rgba(0, 127, 255, 1)".....................passed
-]]></system-out>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="36.911">
+    <testcase classname="jqueryui" name="check menu functionality" time="34.842">
+        <failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[Given user is on menu page..................................................undefined
+Then check if user is on menu page..........................................skipped
+Given pointer get to menu elements..........................................skipped
+When user hover mouse to "Electronics" menu.................................skipped
+Then sub-menu is displayed..................................................skipped
+]]></failure>
     </testcase>
 </testsuite>
