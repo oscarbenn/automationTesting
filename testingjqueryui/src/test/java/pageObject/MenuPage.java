@@ -1,13 +1,11 @@
 package pageObject;
 
-import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MenuPage {
@@ -18,7 +16,7 @@ public class MenuPage {
     private WebElement frame_element, menu, submenu;
     private By frame = By.tagName("iframe");
     private By menus = By.xpath("//ul[@id=\"menu\"]/li/div"); //*[@id=\"menu\"]/li
-    private By sub = By.xpath("//*[@id=\"menu\"]/li/ul/li");
+    //private By sub = By.xpath("//*[@id=\"menu\"]/li/ul/li");
     
     public MenuPage(WebDriver driver){
         this.driver = driver;

@@ -9,7 +9,7 @@ public class SliderPage {
 
     protected WebDriver driver = null;
     protected Actions actions = null;
-    private WebElement frame_element, slider_element, handle_element;
+    private WebElement frame_element, handle_element, slider_element; //slider_element
     private By frame = By.tagName("iframe");
     private By slider = By.id("slider");
     private By handle = By.xpath("//*[@id=\"slider\"]/span");

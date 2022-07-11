@@ -106,6 +106,22 @@ Feature: jqueryui
     When user hover mouse to "Electronics" menu
     Then 3 sub-menu is displayed
 
+  @selectmenu
+  Scenario: check selectmenu functionality
+    Given user is on selectmenu page
+    Then check if user is on selectmenu page
+    Given pointer get to selectmenu elements
+    When user select speed as "Faster"
+    Then "Faster" option is selected
+  
+  @selectmenuproduct
+  Scenario: check selectmenuproduct radius functionality
+    Given user is on selectmenuproduct page
+    Then check if user is on selectmenuproduct page
+    Given pointer get to select menu elements
+    When user click select radius circle 250 px with color "Blue"
+    Then circle size is changed to radius 250 px with color "rgba(0, 0, 255, 1)"
+
   @progressbar
   Scenario: check progressbar download functionality
     Given user is on progressbar download page

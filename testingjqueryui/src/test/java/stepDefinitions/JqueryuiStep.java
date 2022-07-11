@@ -25,6 +25,8 @@ import pageObject.MenuPage;
 import pageObject.ProgressbarPage;
 import pageObject.ResizablePage;
 import pageObject.SelectablePage;
+import pageObject.SelectmenudefaultPage;
+import pageObject.SelectmenuproductPage;
 import pageObject.SliderPage;
 import pageObject.SortablePage;
 import pageObject.SpinnerPage;
@@ -43,10 +45,13 @@ public class JqueryuiStep {
     DatepickerPage datepickerPage;
     DialoganimatedPage dialoganimatedPage;
     MenuPage menuPage;
+    SelectmenudefaultPage selectmenudefaultPage;
+    SelectmenuproductPage selectmenuproductPage;
     TooltipPage tooltipPage;
     ProgressbarPage progressbarPage;
     SpinnerPage spinnerPage;
     SliderPage sliderPage;
+
 
     Actions actions = null;
     Point positionFirst, positionLast;
@@ -385,6 +390,67 @@ public class JqueryuiStep {
     @Then("{int} sub-menu is displayed")
     public void sub_menu_is_displayed(Integer i) {
         assertEquals(i, menuPage.validate());
+    }
+
+//selectmenu
+    @Given("user is on selectmenu page")
+    public void user_is_on_selectmenu_page() {
+        driver.get("https://jqueryui.com/selectmenu/");
+    }
+    @Then("check if user is on selectmenu page")
+    public void check_if_user_is_on_selectmenu_page() {
+        selectmenudefaultPage = new SelectmenudefaultPage(driver);
+        ActualTitle = driver.getTitle();
+        ExpectedTitle = "Selectmenu | jQuery UI";
+        assertEquals(ExpectedTitle, ActualTitle);
+    }
+    @Given("pointer get to selectmenu elements")
+    public void pointer_get_to_selectmenu_elements() {
+        selectmenudefaultPage.switchToFrame();
+        selectmenudefaultPage.getElements();
+    }
+    @When("user select speed as {string}")
+    public void user_select_speed_as(String opsi) {
+        selectmenudefaultPage.selectoptionspeed(opsi);
+    }
+    @Then("{string} option is selected")
+    public void option_is_selected(String expected) {
+        String actual = selectmenudefaultPage.validate();
+        assertEquals(expected, actual);
+    }
+
+//selectmennu produk
+    @Given("user is on selectmenuproduct page")
+    public void user_is_on_selectmenuproduct_page() {
+        driver.get("https://jqueryui.com/selectmenu/#product-selection");
+    }
+    @Then("check if user is on selectmenuproduct page")
+    public void check_if_user_is_on_selectmenuproduct_page() {
+        selectmenuproductPage = new SelectmenuproductPage(driver);
+        ActualTitle = driver.getTitle();
+        ExpectedTitle = "Selectmenu | jQuery UI";
+        assertEquals(ExpectedTitle, ActualTitle);
+    }
+    @Given("pointer get to select menu elements")
+    public void pointer_get_to_select_menu_elements() {
+        selectmenuproductPage.switchToFrame();
+        selectmenuproductPage.getElements();
+    }
+    @When("user click select radius circle {int} px with color {string}")
+    public void user_click_select_radius_circle_px_with_color(Integer i, String color) {
+        selectmenuproductPage.selectRadius(i);
+        selectmenuproductPage.selectColor(color);
+    }
+    @Then("circle size is changed to radius {int} px with color {string}")
+    public void circle_size_is_changed_to_radius_px_with_color(Integer rad, String color) {
+        String actualw = selectmenuproductPage.getRadiusCircle().get(0);
+        String actualh = selectmenuproductPage.getRadiusCircle().get(1);
+        String actualc = selectmenuproductPage.getRadiusCircle().get(2);
+        String expectedr = rad+"px";
+        String expectedc = color;
+        assertEquals(expectedr, actualw);
+        assertEquals(expectedr, actualh);
+        assertEquals(expectedc, actualc);
     }
 
 //progressbar

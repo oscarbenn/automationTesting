@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="22.631">
-    <testcase classname="jqueryui" name="check menu functionality" time="21.691">
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="2" time="44.492">
+    <testcase classname="jqueryui" name="check dialoganimated functionality" time="26.154">
+        <system-out><![CDATA[Given user is on dialoganimated page........................................passed
+Then check if user is on dialoganimated page................................passed
+Given pointer get to dialoganimated elements................................passed
+When user click the open dialog button......................................passed
+Then dialog basic dialog is displayed.......................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="jqueryui" name="check menu functionality" time="17.042">
         <system-out><![CDATA[Given user is on menu page..................................................passed
 Then check if user is on menu page..........................................passed
 Given pointer get to menu elements..........................................passed
