@@ -71,11 +71,11 @@ public class JqueryuiStep {
         driver.quit();
     }
 
+//draggable
     @Given("user is on draggable page")
     public void user_is_on_draggable_page() {
         driver.get("https://jqueryui.com/draggable/");
     }
-
     @Then("check if user is on draggable page")
     public void check_if_user_is_on_draggable_page() {
         draggablePage = new DraggablePage(driver);
@@ -83,19 +83,16 @@ public class JqueryuiStep {
         ExpectedTitle = "Draggable | jQuery UI";
         assertEquals(ExpectedTitle, ActualTitle);
     }
-
     @Given("pointer get to draggable element")
     public void pointer_get_to_draggable_element() {
         draggablePage.switchToFrame();
         draggablePage.moveToElement();
     }
-
     @When("user action drag {int} to right and {int} to bottom")
     public void user_action_drag_to_right(Integer x, Integer y) {
         positionFirst = draggablePage.getLocation();
         draggablePage.move(x, y);
     }
-
     @Then("element move {int} to right and {int} to bottom")
     public void element_move_to_right(Integer x, Integer y) {
         positionLast = draggablePage.getLocation();
@@ -107,6 +104,7 @@ public class JqueryuiStep {
         assertTrue(y2-y1==y);
     }
 
+//droppable
     @Given("user is on droppable page")
     public void user_is_on_droppable_page() {
         driver.get("https://jqueryui.com/droppable/");
@@ -136,6 +134,7 @@ public class JqueryuiStep {
         assertEquals(ExpectedText, ActualText);
     }
 
+//resizable
     @Given("user is on resizable page")
     public void user_is_on_resizable_page() {
         driver.get("https://jqueryui.com/resizable/");
@@ -162,6 +161,7 @@ public class JqueryuiStep {
         resizablePage.isSizeChange();
     }
 
+//selectable
     @Given("user is on selectable page")
     public void user_is_on_selectable_page() {
         driver.get("https://jqueryui.com/selectable/");
@@ -188,7 +188,6 @@ public class JqueryuiStep {
         String colorExpected = color;
         assertEquals(colorExpected, colorActual);
     }
-
     @When("user action click on element {int} element {int} and element {int} with ctrl key")
     public void user_action_click_on_element_element_and_element_with_ctrl_key(Integer index1, Integer index2, Integer index3) {
         selectablePage.clickElements(index1, index2, index3);
@@ -203,12 +202,12 @@ public class JqueryuiStep {
         colorActual = selectablePage.checkColor(index3);
         assertEquals(colorExpected, colorActual);
     }
-
     @When("user action click and drag from element {int} to element {int}")
     public void user_action_click_and_drag_from_element_to_element(Integer index1, Integer index2) {
         selectablePage.selectSwipe(index1, index2);
     }
 
+//sortable
     @Given("user is on sortable page")
     public void user_is_on_sortable_page() {
         driver.get("https://jqueryui.com/sortable/");
@@ -238,6 +237,7 @@ public class JqueryuiStep {
         assertNotEquals(unexpectedElement, actualElement);
     }
 
+//autocomplete
     @Given("user is on autocomplete page")
     public void user_is_on_autocomplete_page() {
         driver.get("https://jqueryui.com/autocomplete/");
@@ -263,6 +263,7 @@ public class JqueryuiStep {
         assertTrue(autocompletePage.numberElement()==number);
     }
 
+//checkbox
     @Given("user is on checkboxradio page")
     public void user_is_on_checkboxradio_page() {
         driver.get("https://jqueryui.com/checkboxradio/");
@@ -287,7 +288,7 @@ public class JqueryuiStep {
     public void opsion_is_checked_and_colored(String color) {
         assertEquals(color, checkboxradioPage.colorOpsi());
     }
-
+//radio
     @Given("pointer get to radio elements")
     public void pointer_get_to_radio_elements() {
         checkboxradioPage.switchToFrame();
@@ -302,6 +303,7 @@ public class JqueryuiStep {
         assertEquals(color, checkboxradioPage.colorRadio());
     }
 
+//datepicker
     @Given("user is on datepicker page")
     public void user_is_on_datepicker_page() {
         driver.get("https://jqueryui.com/datepicker/");
@@ -331,6 +333,7 @@ public class JqueryuiStep {
         assertEquals(color, datepickerPage.colorDate());
     }
 
+//dialog
     @Given("user is on dialoganimated page")
     public void user_is_on_dialoganimated_page() {
         driver.get("https://jqueryui.com/dialog/#animated");
@@ -358,6 +361,7 @@ public class JqueryuiStep {
         assertNotEquals("none", display);
     }
 
+//menu
     @Given("user is on menu page")
     public void user_is_on_menu_page() {
         driver.get("https://jqueryui.com/menu/");
@@ -371,23 +375,19 @@ public class JqueryuiStep {
     }
     @Given("pointer get to menu elements")
     public void pointer_get_to_menu_elements() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        menuPage.switchToFrame();
+        menuPage.getElements();
     }
     @When("user hover mouse to {string} menu")
-    public void user_hover_mouse_to_menu(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_hover_mouse_to_menu(String string) throws InterruptedException {
+        menuPage.chooseHover(string);
     }
-    @Then("sub-menu is displayed")
-    public void sub_menu_is_displayed() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @Then("{int} sub-menu is displayed")
+    public void sub_menu_is_displayed(Integer i) {
+        assertEquals(i, menuPage.validate());
     }
 
-
-
-
+//progressbar
     @Given("user is on progressbar download page")
     public void user_is_on_progressbar_download_page() {
         driver.get("https://jqueryui.com/progressbar/#download");
@@ -415,7 +415,7 @@ public class JqueryuiStep {
         assertEquals(Expected, actual);
     }
 
-
+//slider
     @Given("user is on slider page")
     public void user_is_on_slider_page() {
         driver.get("https://jqueryui.com/slider/#default");
@@ -443,6 +443,7 @@ public class JqueryuiStep {
         assertEquals(expected, actual);
     }
 
+//spinner
     @Given("user is on spinner page")
     public void user_is_on_spinner_page() {
         driver.get("https://jqueryui.com/spinner/");
@@ -474,6 +475,7 @@ public class JqueryuiStep {
         spinnerPage.clickDown(n);
     }
 
+//tooltip
     @Given("user is on tooltip page")
     public void user_is_on_tooltip_page() {
         driver.get("https://jqueryui.com/tooltip/");

@@ -104,7 +104,7 @@ Feature: jqueryui
     Then check if user is on menu page
     Given pointer get to menu elements
     When user hover mouse to "Electronics" menu
-    Then sub-menu is displayed
+    Then 3 sub-menu is displayed
 
   @progressbar
   Scenario: check progressbar download functionality
@@ -113,7 +113,6 @@ Feature: jqueryui
     Given pointer get to  button dowloading elements
     When user click the button dowloading
     Then progressbar download is displayed until "Complete!"
-
 
   @spinner
     Scenario: check spinner functionality

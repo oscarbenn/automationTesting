@@ -31,7 +31,6 @@ public class SliderPage {
 
     public void makeSlide(int int1) {
         Double a = 569.00/100.00*(double)int1;
-        Double d = (double) ((569/100)*int1);
         int i=a.intValue();
         int xOff = (569/100)*int1;
         System.out.println(xOff);

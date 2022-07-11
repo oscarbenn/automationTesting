@@ -18,7 +18,7 @@ public class ProgressbarPage {
     private By button_download = By.id("downloadButton");
     private By bar = By.id("progressbar");
     private By label = By.className("progress-label");
-    private Boolean sukses;
+
 
     public ProgressbarPage(WebDriver driver) {
         this.driver = driver;
@@ -37,7 +37,7 @@ public class ProgressbarPage {
     public void clickDownload() {
         download_button.click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        sukses = wait.until(ExpectedConditions.attributeToBe(bar, "aria-valuenow", "100"));
+        wait.until(ExpectedConditions.attributeToBe(bar, "aria-valuenow", "100"));
     }
 
     public String validate() {

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="36.911">
-    <testcase classname="jqueryui" name="check menu functionality" time="34.842">
-        <failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[Given user is on menu page..................................................undefined
-Then check if user is on menu page..........................................skipped
-Given pointer get to menu elements..........................................skipped
-When user hover mouse to "Electronics" menu.................................skipped
-Then sub-menu is displayed..................................................skipped
-]]></failure>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="22.631">
+    <testcase classname="jqueryui" name="check menu functionality" time="21.691">
+        <system-out><![CDATA[Given user is on menu page..................................................passed
+Then check if user is on menu page..........................................passed
+Given pointer get to menu elements..........................................passed
+When user hover mouse to "Electronics" menu.................................passed
+Then 3 sub-menu is displayed................................................passed
+]]></system-out>
     </testcase>
 </testsuite>
