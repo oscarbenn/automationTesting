@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.Assert;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,6 +29,7 @@ import pageObject.SelectablePage;
 import pageObject.SelectmenudefaultPage;
 import pageObject.SelectmenuproductPage;
 import pageObject.SliderPage;
+import pageObject.SliderrangePage;
 import pageObject.SortablePage;
 import pageObject.SpinnerPage;
 import pageObject.TooltipPage;
@@ -51,6 +53,7 @@ public class JqueryuiStep {
     ProgressbarPage progressbarPage;
     SpinnerPage spinnerPage;
     SliderPage sliderPage;
+    SliderrangePage sliderrangePage;
 
 
     Actions actions = null;
@@ -257,17 +260,32 @@ public class JqueryuiStep {
     @Given("pointer get to autocomplete elements")
     public void pointer_get_to_autocomplete_elements() {
         autocompletePage.switchToFrame();
+        autocompletePage.getElements();
     }
     @When("user typing {string} on element")
     public void user_typing_on_element(String word) {
         autocompletePage.typing(word);
-        autocompletePage.getElements();
     }
     @Then("element give {int} opsi")
     public void element_give_opsi(Integer number) {
+        System.out.println(autocompletePage.numberElement());
         assertTrue(autocompletePage.numberElement()==number);
     }
-
+    @When("user click on {string}")
+    public void user_click_on(String string) throws InterruptedException {
+        autocompletePage.choose(string);
+        Thread.sleep(3000);
+    }
+    @And("user type {string} after")
+    public void user_type_after(String string) {
+        autocompletePage.typingafter(string);
+    }
+    @Then("{string} is selected")
+    public void is_selected(String string){
+        String select = autocompletePage.cekValidate();
+        assertEquals(string, select);
+    }
+    
 //checkbox
     @Given("user is on checkboxradio page")
     public void user_is_on_checkboxradio_page() {
@@ -330,8 +348,9 @@ public class JqueryuiStep {
         datepickerPage.clickDatepicker();
     }
     @And("user look for day {string} month {string} year {string}")
-    public void user_look_for_day_month_year(String day, String month, String year) {
+    public void user_look_for_day_month_year(String day, String month, String year) throws InterruptedException {
         datepickerPage.selectDate(day, month, year);
+        Thread.sleep(3000);
     }
     @Then("date is checked and colored {string}")
     public void date_is_checked_and_colored(String color) {
@@ -508,6 +527,42 @@ public class JqueryuiStep {
         String actual = sliderPage.getValue();
         assertEquals(expected, actual);
     }
+//sliderrange
+    @Given("user is on sliderrange page")
+    public void user_is_on_sliderrange_page() {
+        driver.get("https://jqueryui.com/slider/#range");
+    }
+    @Then("check if user is on sliderrange page")
+    public void check_if_user_is_on_sliderrange_page() {
+        sliderrangePage = new SliderrangePage(driver);
+        ActualTitle = driver.getTitle();
+        ExpectedTitle = "Slider | jQuery UI";
+        assertEquals(ExpectedTitle, ActualTitle);
+    }
+    @Given("pointer get the sliderrange elements")
+    public void pointer_get_the_sliderrange_elements() {
+        sliderrangePage.switchToFrame();
+        sliderrangePage.getElements();
+    }
+    @When("user drag slider min to {int}% and max to {int}%")
+    public void user_drag_slider_min_to_and_max_to(Integer int1, Integer int2) {
+        sliderrangePage.setMinMax();
+        sliderrangePage.makeSlideMin(int1);
+        sliderrangePage.makeSlideMax(int2);
+    }
+    
+    @Then("slider min be {int}% and slider max is {int}%")
+    public void slider_min_be_and_slider_max_is(Integer int1, Integer int2) {
+        String actualMin = sliderrangePage.getMinValue();
+        String actualMax = sliderrangePage.getMaxValue();
+        System.out.println(actualMin);
+        System.out.println(actualMax);
+        Assert.assertTrue(actualMin.contains(String.valueOf(int1)));
+        Assert.assertTrue(actualMax.contains(String.valueOf(int2)));
+        
+        //assertEquals("left: "+int1+".2%;", actualMin);
+        //assertEquals("left: "+(int2-1)+".6%;", actualMax);
+    }
 
 //spinner
     @Given("user is on spinner page")
@@ -562,8 +617,9 @@ public class JqueryuiStep {
         tooltipPage.hoverToElement();
     }
     @Then("tooltip is displayed")
-    public void tooltip_is_displayed() {
+    public void tooltip_is_displayed() throws InterruptedException {
         String content = "We ask for your age only for statistical purposes.";
         assertEquals(content, tooltipPage.validated());
+        Thread.sleep(5000);
     }
 }

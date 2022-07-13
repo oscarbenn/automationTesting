@@ -27,6 +27,7 @@ public class TooltipPage {
     public void hoverToElement(){
         input_element = driver.findElement(input);
         actions.moveToElement(input_element);
+        input_element.click();
     }
 
     public String validated(){

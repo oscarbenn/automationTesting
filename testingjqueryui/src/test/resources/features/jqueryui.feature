@@ -62,8 +62,14 @@ Feature: jqueryui
     Given user is on autocomplete page
     Then check if user is on autocomplete page
     Given pointer get to autocomplete elements
-    When user typing "Script" on element
-    Then element give 3 opsi
+    When user typing "ja" on element 
+    Then element give 2 opsi
+    When user click on "Java"
+    When user typing "s" on element
+    #And user type "s" after
+    Then element give 1 opsi
+    When user click on "JavaScript"
+    Then "JavaScript" is selected
 
   @checkbox
   Scenario: check checkbox functionality
@@ -87,7 +93,79 @@ Feature: jqueryui
     Then check if user is on datepicker page
     Given pointer get to datepicker elements
     When user click the datepicker element
-    And user look for day "17" month "August" year "2023"
+    And user look for day "20" month "March" year "2021"
+    Then date is checked and colored "rgba(0, 127, 255, 1)"
+
+  @datepicker
+  Scenario: check datepicker functionality
+    Given user is on datepicker page
+    Then check if user is on datepicker page
+    Given pointer get to datepicker elements
+    When user click the datepicker element
+    And user look for day "20" month "September" year "2021"
+    Then date is checked and colored "rgba(0, 127, 255, 1)"
+
+  @datepicker
+  Scenario: check datepicker functionality
+    Given user is on datepicker page
+    Then check if user is on datepicker page
+    Given pointer get to datepicker elements
+    When user click the datepicker element
+    And user look for day "20" month "July" year "2021"
+    Then date is checked and colored "rgba(0, 127, 255, 1)"
+
+  @datepicker  
+  Scenario: check datepicker functionality
+    Given user is on datepicker page
+    Then check if user is on datepicker page
+    Given pointer get to datepicker elements
+    When user click the datepicker element
+    And user look for day "20" month "March" year "2022"
+    Then date is checked and colored "rgba(0, 127, 255, 1)"
+
+  @datepicker  
+  Scenario: check datepicker functionality
+    Given user is on datepicker page
+    Then check if user is on datepicker page
+    Given pointer get to datepicker elements
+    When user click the datepicker element
+    And user look for day "20" month "September" year "2022"
+    Then date is checked and colored "rgba(0, 127, 255, 1)"
+
+  @datepicker  
+  Scenario: check datepicker functionality
+    Given user is on datepicker page
+    Then check if user is on datepicker page
+    Given pointer get to datepicker elements
+    When user click the datepicker element
+    And user look for day "20" month "July" year "2022"
+    Then date is checked and colored "rgba(0, 127, 255, 1)"
+
+  @datepicker  
+  Scenario: check datepicker functionality
+    Given user is on datepicker page
+    Then check if user is on datepicker page
+    Given pointer get to datepicker elements
+    When user click the datepicker element
+    And user look for day "20" month "March" year "2023"
+    Then date is checked and colored "rgba(0, 127, 255, 1)"
+
+  @datepicker  
+  Scenario: check datepicker functionality
+    Given user is on datepicker page
+    Then check if user is on datepicker page
+    Given pointer get to datepicker elements
+    When user click the datepicker element
+    And user look for day "20" month "September" year "2023"
+    Then date is checked and colored "rgba(0, 127, 255, 1)"
+
+  @datepicker  
+  Scenario: check datepicker functionality
+    Given user is on datepicker page
+    Then check if user is on datepicker page
+    Given pointer get to datepicker elements
+    When user click the datepicker element
+    And user look for day "20" month "July" year "2023"
     Then date is checked and colored "rgba(0, 127, 255, 1)"
 
   @dialoganimated
@@ -103,7 +181,7 @@ Feature: jqueryui
     Given user is on menu page
     Then check if user is on menu page
     Given pointer get to menu elements
-    When user hover mouse to "Electronics" menu
+    When user hover mouse to "Music" menu
     Then 3 sub-menu is displayed
 
   @selectmenu
@@ -119,8 +197,8 @@ Feature: jqueryui
     Given user is on selectmenuproduct page
     Then check if user is on selectmenuproduct page
     Given pointer get to select menu elements
-    When user click select radius circle 250 px with color "Blue"
-    Then circle size is changed to radius 250 px with color "rgba(0, 0, 255, 1)"
+    When user click select radius circle 250 px with color "Red"
+    Then circle size is changed to radius 250 px with color "rgba(255, 0, 0, 1)"
 
   @progressbar
   Scenario: check progressbar download functionality
@@ -145,8 +223,24 @@ Feature: jqueryui
     Given user is on slider page
     Then check if user is on slider page
     Given pointer get the slider elements
-    When user drag slider to 50%
-    Then slider value is 50%
+    When user drag slider to 70%
+    Then slider value is 70%
+
+  @sliderrange
+  Scenario: check sliderrange functionality
+    Given user is on sliderrange page
+    Then check if user is on sliderrange page
+    Given pointer get the sliderrange elements
+    When user drag slider min to 10% and max to 100%
+    Then slider min be 10% and slider max is 100%
+  
+  @sliderrange
+  Scenario: check sliderrange functionality
+    Given user is on sliderrange page
+    Then check if user is on sliderrange page
+    Given pointer get the sliderrange elements
+    When user drag slider min to 30% and max to 70%
+    Then slider min be 30% and slider max is 70%
 
   @tooltip
   Scenario: check tooltip functionality

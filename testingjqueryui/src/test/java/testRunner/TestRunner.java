@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/features",
                     glue = {"stepDefinitions"},
-                    tags = "@smokeFeature and (@dialoganimated or @menu)",
+                    tags = "@autocomplete",
                     monochrome = false,
                     plugin = {"pretty", "html:target/htmlReport/reports.html",
                                         "json:target/jsonReport/reports.json",

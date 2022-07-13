@@ -22,7 +22,7 @@ public class SelectmenuproductPage {
     private By radius = By.xpath("//*[@id=\"radius-button\"]");
     private By radius_option = By.xpath("//div/ul/li/div");//*[@id="ui-id-2"]
     private By color = By.xpath("//*[@id=\"color-button\"]");
-    private By color_option = By.xpath("//div[4]/ul/li/div");//*[@id="ui-id-2"]
+    private By color_option = By.xpath("//div/ul/li/div");//*[@id="ui-id-2"]
     
     public SelectmenuproductPage(WebDriver driver){
         this.driver = driver;
@@ -48,6 +48,7 @@ public class SelectmenuproductPage {
         for (int i = 0; i < option_radius.size(); i++) {
             opsi = option_radius.get(i);
             String label = opsi.getText();
+            System.out.println(label);
             if (label.equalsIgnoreCase(radius+"px")) {
                 opsi.click();
                 break;
@@ -61,6 +62,7 @@ public class SelectmenuproductPage {
         for (int i = 0; i < option_color.size(); i++) {
             opsi = option_color.get(i);
             String label = opsi.getText();
+            System.out.println(label);
             if (label.equalsIgnoreCase(color)) {
                 opsi.click();
                 break;
